@@ -7,7 +7,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 
-export default function Example() {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
@@ -30,26 +30,26 @@ export default function Example() {
           </button>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm font-semibold leading-6 text-white-900">
+          <a href="/#about" className="text-base font-semibold leading-6 text-white">
             About
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white-900">
+          <a href="#" className="text-base font-semibold leading-6 text-white">
             Experience
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white-900">
+          <a href="#" className="text-base font-semibold leading-6 text-white">
             Skills
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white-900">
+          <a href="#" className="text-base font-semibold leading-6 text-white">
             Education
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white-900">
+          <a href="#" className="text-base font-semibold leading-6 text-white">
             Projects
           </a>
         </Popover.Group>
       </nav>
       <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-black-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm ">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">DEB</span>
