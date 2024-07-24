@@ -22,7 +22,7 @@ export default function About() {
                     width={240}
                     height={240}
                     alt="Daniel Espinoza"
-                    className="rounded-lg transition-all duration-1000 grayscale hover:grayscale-0 cursor-pointer"
+                    className="rounded-lg transition-all duration-900 grayscale hover:grayscale-0 cursor-pointer"
                 />
             </div>
         </div>

@@ -36,7 +36,7 @@ export default function Hello () {
           </div>
 
           <div className="flex items-center gap-3">
-            <Link href="#contact" className="bg-gradient-to-r to-[#A43931] from-[#1D4350] p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
+            <Link href="#contact" className="bg-gradient-to-r to-[#A43931] from-[#1D4350] p-[1px] rounded-full transition-all duration-300 hover:from-[#1D4350] hover:to-[#A43931]">
               <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
                 <span>Contact me</span>
                 <RiContactsFill size={16} />
