@@ -15,7 +15,6 @@ export default function Hello () {
             <span className=" text-[#DAAFAC]">Daniel Espinoza,</span> <br />
             {` a Professional `}
             <span className=" text-[#A4B3B9]">Software Engineer</span>
-            .
           </h1>
 
           <div className="my-12 flex items-center gap-5">
