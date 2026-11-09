@@ -1,111 +1,206 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Dialog, Popover } from '@headlessui/react'
-import {
-  Bars3Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
+import { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { BsGithub, BsSun, BsMoon } from "react-icons/bs";
+import { Language, PROFILE_DATA } from "../data/portfolio";
 
-export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+interface HeaderProps {
+  lang: Language;
+  setLang: (lang: Language) => void;
+  theme: "dark" | "light";
+  toggleTheme: () => void;
+}
+
+export default function Header({ lang, setLang, theme, toggleTheme }: HeaderProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navItems = [
+    {
+      href: "#projects",
+      label: lang === "es" ? "Proyectos" : "Projects",
+    },
+    {
+      href: "#about",
+      label: lang === "es" ? "Sobre mí" : "About",
+    },
+    {
+      href: "#experience",
+      label: lang === "es" ? "Trayectoria" : "Experience",
+    },
+    {
+      href: "#skills",
+      label: lang === "es" ? "Tecnologías" : "Skills",
+    },
+    {
+      href: "#contact",
+      label: lang === "es" ? "Contacto" : "Contact",
+    },
+  ];
+
+  const isDark = theme === "dark";
 
   return (
-    <header>
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">DEB</span>
-            <img className="h-8 w-auto" src="./favicon.ico" alt="PaletaChupada's logo" />
-          </a>
+    <header
+      className={`sticky top-0 z-40 w-full border-b transition-colors duration-150 ${
+        isDark
+          ? "border-neutral-800 bg-[#0a0a0a]"
+          : "border-neutral-200 bg-[#fafafa]"
+      }`}
+    >
+      <nav
+        className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4"
+        aria-label="Global"
+      >
+        <a
+          href="#"
+          className="flex items-center gap-2.5 font-mono text-sm font-semibold tracking-tight"
+        >
+          <span
+            className={`inline-flex h-6 w-6 items-center justify-center border text-xs font-bold ${
+              isDark
+                ? "border-neutral-700 bg-neutral-900 text-neutral-100"
+                : "border-neutral-300 bg-neutral-100 text-neutral-900"
+            }`}
+          >
+            DEB
+          </span>
+          <span className={isDark ? "text-neutral-100" : "text-neutral-900"}>
+            {PROFILE_DATA.handle}
+          </span>
+        </a>
+
+        {/* Desktop navigation */}
+        <div className="hidden md:flex md:items-center md:gap-8">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={`text-sm transition-colors ${
+                isDark
+                  ? "text-neutral-400 hover:text-neutral-100"
+                  : "text-neutral-600 hover:text-neutral-950"
+              }`}
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
-        <div className="flex lg:hidden">
+
+        {/* Actions: Language, Theme, GitHub */}
+        <div className="hidden md:flex md:items-center md:gap-2">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white-700"
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => setLang(lang === "es" ? "en" : "es")}
+            aria-label="Toggle language"
+            className={`border px-2.5 py-1 font-mono text-xs uppercase transition-colors ${
+              isDark
+                ? "border-neutral-800 bg-neutral-900 text-neutral-300 hover:border-neutral-600 hover:text-white"
+                : "border-neutral-300 bg-white text-neutral-700 hover:border-neutral-500 hover:text-black"
+            }`}
           >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            {lang === "es" ? "ES / EN" : "EN / ES"}
+          </button>
+
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className={`flex h-7 w-7 items-center justify-center border transition-colors ${
+              isDark
+                ? "border-neutral-800 bg-neutral-900 text-neutral-300 hover:border-neutral-600 hover:text-white"
+                : "border-neutral-300 bg-white text-neutral-700 hover:border-neutral-500 hover:text-black"
+            }`}
+          >
+            {isDark ? <BsSun size={13} /> : <BsMoon size={13} />}
+          </button>
+
+          <a
+            href={PROFILE_DATA.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile"
+            className={`flex h-7 w-7 items-center justify-center border transition-colors ${
+              isDark
+                ? "border-neutral-800 bg-neutral-900 text-neutral-300 hover:border-neutral-600 hover:text-white"
+                : "border-neutral-300 bg-white text-neutral-700 hover:border-neutral-500 hover:text-black"
+            }`}
+          >
+            <BsGithub size={14} />
+          </a>
+        </div>
+
+        {/* Mobile menu button */}
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            type="button"
+            onClick={() => setLang(lang === "es" ? "en" : "es")}
+            className={`border px-2 py-1 font-mono text-xs uppercase ${
+              isDark
+                ? "border-neutral-800 bg-neutral-900 text-neutral-300"
+                : "border-neutral-300 bg-white text-neutral-700"
+            }`}
+          >
+            {lang.toUpperCase()}
+          </button>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className={`flex h-7 w-7 items-center justify-center border ${
+              isDark
+                ? "border-neutral-800 bg-neutral-900 text-neutral-300"
+                : "border-neutral-300 bg-white text-neutral-700"
+            }`}
+          >
+            {isDark ? <BsSun size={13} /> : <BsMoon size={13} />}
+          </button>
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+            className={`flex h-7 w-7 items-center justify-center border ${
+              isDark
+                ? "border-neutral-800 bg-neutral-900 text-neutral-200"
+                : "border-neutral-300 bg-white text-neutral-800"
+            }`}
+          >
+            {mobileMenuOpen ? (
+              <XMarkIcon className="h-4 w-4" />
+            ) : (
+              <Bars3Icon className="h-4 w-4" />
+            )}
           </button>
         </div>
-        <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <a href="/#about" className="text-base font-semibold leading-6 text-white">
-            About
-          </a>
-          <a href="#" className="text-base font-semibold leading-6 text-white">
-            Experience
-          </a>
-          <a href="#" className="text-base font-semibold leading-6 text-white">
-            Skills
-          </a>
-          <a href="#" className="text-base font-semibold leading-6 text-white">
-            Education
-          </a>
-          <a href="#" className="text-base font-semibold leading-6 text-white">
-            Projects
-          </a>
-        </Popover.Group>
       </nav>
-      <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-        <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm ">
-          <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">DEB</span>
-              <img
-                className="h-8 w-auto"
-                src="./favicon.ico"
-                alt="PaletaChupada's logo"
-              />
-            </a>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-white-700"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
+
+      {/* Mobile navigation drawer */}
+      {mobileMenuOpen && (
+        <div
+          className={`border-t px-6 py-4 md:hidden ${
+            isDark
+              ? "border-neutral-800 bg-[#0a0a0a]"
+              : "border-neutral-200 bg-[#fafafa]"
+          }`}
+        >
+          <div className="flex flex-col space-y-3">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`py-1 text-sm font-medium ${
+                  isDark
+                    ? "text-neutral-300 hover:text-white"
+                    : "text-neutral-700 hover:text-black"
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-black-500/10">
-              <div className="space-y-2 py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white-1000 hover:bg-black-50"
-                >
-                  About
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white-1000 hover:bg-black-50"
-                >
-                  Experience
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white-1000 hover:bg-black-50"
-                >
-                  Skills
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white-1000 hover:bg-black-50"
-                >
-                  Education
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white-1000 hover:bg-black-50"
-                >
-                  Projects
-                </a>
-              </div>
-            </div>
-          </div>
-        </Dialog.Panel>
-      </Dialog>
+        </div>
+      )}
     </header>
-  )
+  );
 }

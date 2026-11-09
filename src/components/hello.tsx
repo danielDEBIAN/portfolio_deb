@@ -1,55 +1,146 @@
-import Image from "next/image";
-import Link from "next/link";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { MdDownload } from "react-icons/md";
-import { RiContactsFill } from "react-icons/ri";
+import { BsGithub, BsLinkedin, BsArrowUpRight, BsGeoAlt } from "react-icons/bs";
+import { HiOutlineDocumentDownload, HiOutlineLink } from "react-icons/hi";
+import { Language, PROFILE_DATA } from "../data/portfolio";
 
-export default function Hello () {
-    return (
-    <section className="relative item-center flex flex-col items-center justify-between py-4 lg:py-12 pl-10">
-      <div className="grid grid-cols-1 items-start lg:grid-cols-1 lg:gap-12 gap-y-8">
-        <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
-          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-            Hello, <br />
-            I'm {' '}
-            <span className=" text-[#DAAFAC]">Daniel Espinoza,</span> <br />
-            {` a Professional `}
-            <span className=" text-[#A4B3B9]">Software Engineer</span>
-          </h1>
+interface HelloProps {
+  lang: Language;
+  theme: "dark" | "light";
+}
 
-          <div className="my-12 flex items-center gap-5">
-            <Link
-              href='https://github.com/danielDEBIAN'
-              target='_blank'
-              className="transition-all text-[#DAAFAC] hover:scale-125 duration-300"
-            >
-              <BsGithub size={40} />
-            </Link>
-            <Link
-              href='https://www.linkedin.com/in/daniel-espinoza-bautista-4939bb218/'
-              target='_blank'
-              className="transition-all text-[#DAAFAC] hover:scale-125 duration-300"
-            >
-              <BsLinkedin size={40} />
-            </Link>
-          </div>
+export default function Hello({ lang, theme }: HelloProps) {
+  const isDark = theme === "dark";
 
-          <div className="flex items-center gap-3">
-            <Link href="#contact" className="bg-gradient-to-r to-[#A43931] from-[#1D4350] p-[1px] rounded-full transition-all duration-300 hover:from-[#1D4350] hover:to-[#A43931]">
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
-                <span>Contact me</span>
-                <RiContactsFill size={16} />
-              </button>
-            </Link>
+  return (
+    <section className="mx-auto max-w-5xl px-6 pb-16 pt-16 md:pb-24 md:pt-24">
+      {/* Status & Location Row */}
+      <div className="mb-6 flex flex-wrap items-center gap-3">
+        <span
+          className={`inline-flex items-center gap-2 border px-3 py-1 font-mono text-xs ${
+            isDark
+              ? "border-neutral-800 bg-neutral-900 text-neutral-300"
+              : "border-neutral-300 bg-white text-neutral-700"
+          }`}
+        >
+          <span className="h-2 w-2 rounded-full bg-emerald-500" />
+          {PROFILE_DATA.role[lang]}
+        </span>
 
-            <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-[#1D4350] to-[#A43931] px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out hover:text-white hover:no-underline md:font-semibold" role="button" target="_blank" href= 'https://drive.google.com/file/d/1WgYXXZHkY-SCwNHYlZZ7wuvBM6keJSWd/view?usp=sharing'
-            >
-              <span>Get Resume</span>
-              <MdDownload size={16} />
-            </Link>
-          </div>
-          </div>
-        </div>
+        <span
+          className={`inline-flex items-center gap-1.5 border px-3 py-1 font-mono text-xs ${
+            isDark
+              ? "border-neutral-800 bg-neutral-900/40 text-neutral-400"
+              : "border-neutral-200 bg-neutral-100 text-neutral-600"
+          }`}
+        >
+          <BsGeoAlt size={11} />
+          {PROFILE_DATA.location[lang]} · ESCOM (IPN)
+        </span>
+      </div>
+
+      {/* Main Name & Headline */}
+      <div className="max-w-3xl">
+        <p
+          className={`mb-2 font-mono text-sm ${
+            isDark ? "text-neutral-400" : "text-neutral-600"
+          }`}
+        >
+          {PROFILE_DATA.name} (@{PROFILE_DATA.handle})
+        </p>
+
+        <h1
+          className={`text-3xl font-bold tracking-tight sm:text-5xl sm:leading-[1.15] ${
+            isDark ? "text-neutral-100" : "text-neutral-900"
+          }`}
+        >
+          {PROFILE_DATA.heroHeadline[lang]}
+        </h1>
+
+        <p
+          className={`mt-6 max-w-2xl text-base leading-relaxed sm:text-lg ${
+            isDark ? "text-neutral-400" : "text-neutral-600"
+          }`}
+        >
+          {PROFILE_DATA.heroSubheadline[lang]}
+        </p>
+      </div>
+
+      {/* Primary Action Buttons (Strictly Flat — Zero Gradients) */}
+      <div className="mt-8 flex flex-wrap items-center gap-3">
+        <a
+          href="#projects"
+          className={`inline-flex items-center gap-2 border px-5 py-2.5 text-sm font-medium transition-colors ${
+            isDark
+              ? "border-neutral-100 bg-neutral-100 text-neutral-950 hover:bg-white"
+              : "border-neutral-900 bg-neutral-900 text-neutral-50 hover:bg-black"
+          }`}
+        >
+          <span>
+            {lang === "es"
+              ? "Ver repositorios pineados"
+              : "View pinned repositories"}
+          </span>
+          <BsArrowUpRight size={13} />
+        </a>
+
+        <a
+          href={PROFILE_DATA.resumeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-2 border px-5 py-2.5 text-sm font-medium transition-colors ${
+            isDark
+              ? "border-neutral-800 bg-neutral-900 text-neutral-200 hover:border-neutral-600 hover:text-white"
+              : "border-neutral-300 bg-white text-neutral-800 hover:border-neutral-500 hover:text-black"
+          }`}
+        >
+          <HiOutlineDocumentDownload size={16} />
+          <span>{lang === "es" ? "Descargar CV" : "Download Resume"}</span>
+        </a>
+      </div>
+
+      {/* Social Links Bar */}
+      <div
+        className={`mt-10 flex flex-wrap items-center gap-6 border-t pt-6 font-mono text-xs ${
+          isDark
+            ? "border-neutral-900 text-neutral-400"
+            : "border-neutral-200 text-neutral-600"
+        }`}
+      >
+        <a
+          href={PROFILE_DATA.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-2 transition-colors ${
+            isDark ? "hover:text-neutral-100" : "hover:text-neutral-950"
+          }`}
+        >
+          <BsGithub size={15} />
+          <span>github.com/danielDEBIAN</span>
+        </a>
+
+        <a
+          href={PROFILE_DATA.linkedinUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-2 transition-colors ${
+            isDark ? "hover:text-neutral-100" : "hover:text-neutral-950"
+          }`}
+        >
+          <BsLinkedin size={15} />
+          <span>LinkedIn</span>
+        </a>
+
+        <a
+          href={PROFILE_DATA.linktreeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-2 transition-colors ${
+            isDark ? "hover:text-neutral-100" : "hover:text-neutral-950"
+          }`}
+        >
+          <HiOutlineLink size={16} />
+          <span>linktr.ee/deb_daniel</span>
+        </a>
+      </div>
     </section>
-    )
+  );
 }

@@ -1,22 +1,36 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import type { ReactNode } from "react";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const roboto = Roboto({ weight: '400', subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
-  title: "Portafolio - DEB",
-  description: "Portafolio de Daniel Espinoza, creado con Next.js, Tailwind CSS, React y TypeScript.",
+  title: "Daniel Espinoza (@danielDEBIAN) — Software Engineer",
+  description:
+    "Portafolio de Daniel Espinoza Bautista, Software Engineer en Ellucian. Proyectos en JavaScript, TypeScript, Python, Java, Electron, RCON y Cloud.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>{children}</body>
+    <html
+      lang="es"
+      suppressHydrationWarning
+      className={`${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="font-sans">{children}</body>
     </html>
   );
 }
