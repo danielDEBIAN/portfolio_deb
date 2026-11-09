@@ -316,7 +316,7 @@ export const SKILLS_CATEGORIES = [
       "AWS (Amazon Web Services)",
       "GCP (Google Cloud Platform)",
       "Microsoft Azure",
-      "GNU/Linux (Debian)",
+      "GNU/Linux (Fedora)",
       "Git & GitHub",
       "Firebase",
     ],
