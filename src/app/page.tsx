@@ -43,10 +43,10 @@ export default function PortfolioPage() {
       />
       <main>
         <Hello lang={lang} theme={theme} />
-        <Projects lang={lang} theme={theme} />
         <About lang={lang} theme={theme} />
         <Experience lang={lang} theme={theme} />
         <Skills lang={lang} theme={theme} />
+        <Projects lang={lang} theme={theme} />
       </main>
       <Footer lang={lang} theme={theme} />
     </div>

@@ -119,7 +119,7 @@ export default function Projects({ lang, theme }: ProjectsProps) {
               isDark ? "text-neutral-500" : "text-neutral-500"
             }`}
           >
-            01 / {lang === "es" ? "Repositorios Pineados" : "Pinned Repositories"}
+            04 / {lang === "es" ? "Repositorios Pineados" : "Pinned Repositories"}
           </p>
           <h2
             className={`text-2xl font-bold tracking-tight sm:text-3xl ${

@@ -24,121 +24,104 @@ export interface PinnedRepo {
   featured?: boolean;
 }
 
+export interface ExperienceItem {
+  role: {
+    es: string;
+    en: string;
+  };
+  organization: string;
+  period: {
+    es: string;
+    en: string;
+  };
+  location: {
+    es: string;
+    en: string;
+  };
+  description: {
+    es: string;
+    en: string;
+  };
+  tags: string[];
+}
+
+export interface EducationItem {
+  degree: {
+    es: string;
+    en: string;
+  };
+  institution: string;
+  period: {
+    es: string;
+    en: string;
+  };
+  location: {
+    es: string;
+    en: string;
+  };
+  description: {
+    es: string;
+    en: string;
+  };
+  tags: string[];
+}
+
 export const PROFILE_DATA = {
   name: "Daniel Espinoza",
   fullName: "Daniel Espinoza Bautista",
   handle: "danielDEBIAN",
   alias: "D.E.B. / Paleta Chupada",
   role: {
-    es: "Software Engineer en Ellucian",
-    en: "Software Engineer at Ellucian",
+    es: "Software Engineer II @ Ellucian | Ing. en Sistemas Computacionales",
+    en: "Software Engineer II @ Ellucian | Computer Systems Engineer",
   },
   location: {
-    es: "México",
-    en: "Mexico",
+    es: "Querétaro, México",
+    en: "Querétaro, Mexico",
   },
   company: "Ellucian",
+  totalExperience: {
+    es: "3 años 11 meses en Ellucian",
+    en: "3 years 11 months at Ellucian",
+  },
   education: "ESCOM — Instituto Politécnico Nacional (IPN)",
+  email: "espinoza.bautista.daniel246@gmail.com",
+  phone: "+52 55 6028 5635",
   avatarUrl: "https://avatars.githubusercontent.com/u/84060085?v=4",
   githubUrl: "https://github.com/danielDEBIAN",
   linkedinUrl: "https://www.linkedin.com/in/daniel-espinoza-bautista-4939bb218/",
   linktreeUrl: "https://linktr.ee/deb_daniel",
-  resumeUrl:
-    "https://drive.google.com/file/d/1WgYXXZHkY-SCwNHYlZZ7wuvBM6keJSWd/view?usp=sharing",
+  cvPath: "/cv",
   spotifyArtistUrl: "https://open.spotify.com/artist/6yyRisjlFkP7X3BtluPsK7",
   spotifyAlbumUrl: "https://open.spotify.com/album/7foXQbpRDBxQUAQpkoU8GC",
   tiktokUrl: "https://tiktok.com/@debaleta",
   youtubeUrl: "https://www.youtube.com/channel/UCqSthQqDbU0FNXJLLx3LeBA",
   instagramUrl: "https://instagram.com/paleta_chupada",
   heroHeadline: {
-    es: "Ingeniero de Software construyendo herramientas de escritorio, web y automatización.",
-    en: "Software Engineer building desktop tools, web applications, and automation pipelines.",
+    es: "Software Engineer II construyendo aplicaciones web, herramientas de escritorio y automatización.",
+    en: "Software Engineer II building web applications, desktop tools, and automation pipelines.",
   },
   heroSubheadline: {
-    es: "Actualmente Software Engineer en Ellucian y formado en ESCOM (IPN). Especializado en JavaScript/TypeScript, Python, Java, arquitecturas Cloud (AWS, GCP, Azure) y entornos Linux.",
-    en: "Currently a Software Engineer at Ellucian with a background from ESCOM (IPN). Specialized in JavaScript/TypeScript, Python, Java, Cloud architectures (AWS, GCP, Azure), and Linux environments.",
+    es: "Ingeniero en Sistemas Computacionales egresado de ESCOM (IPN) y Software Engineer II en Ellucian (Querétaro, México). Especializado en desarrollo Front-End y Back-End con React.js, TypeScript, Python, Java, pruebas automatizadas (Selenium, NeoLoad), Cloud y entornos Linux.",
+    en: "Computer Systems Engineer graduated from ESCOM (IPN) and Software Engineer II at Ellucian (Querétaro, Mexico). Specialized in Front-End and Back-End development with React.js, TypeScript, Python, Java, automated testing (Selenium, NeoLoad), Cloud, and Linux environments.",
+  },
+  cvSummary: {
+    es: "Como Software Engineer II en Ellucian, contribuyo al diseño y desarrollo de páginas y componentes internos con enfoque tanto en tecnologías Front-End como Back-End. Mis competencias principales incluyen React.js, TypeScript, JavaScript, HTML5, Python, Java, NeoLoad y Selenium. Egresado de Ingeniería en Sistemas Computacionales en la Escuela Superior de Cómputo (ESCOM - IPN) en diciembre de 2023, enfocado en entregar soluciones robustas, eficientes y mantenibles.",
+    en: "As a Software Engineer II at Ellucian, I contribute to the design and development of internal pages and components, with a focus on both front-end and back-end technologies. My core competencies include React.js, TypeScript, JavaScript, HTML5, Python, Java, NeoLoad, and Selenium. I hold a B.S. in Computer Systems Engineering from Escuela Superior de Cómputo (ESCOM - IPN), graduated in December 2023, focused on delivering robust and efficient software solutions.",
   },
   aboutParagraphs: {
     es: [
-      "Soy Ingeniero de Software en Ellucian y formado en Ingeniería en Sistemas Computacionales en la Escuela Superior de Cómputo (ESCOM) del Instituto Politécnico Nacional.",
-      "Disfruto diseñar y desarrollar software de principio a fin: desde aplicaciones web full-stack con React y Next.js, hasta aplicaciones de escritorio multiplataforma con Electron y Node.js, protocolos de red en tiempo real (RCON) y pipelines de inteligencia artificial local en Python.",
-      "Entusiasta de Linux (de ahí el alias DEBIAN) y del cómputo en la nube con experiencia en AWS, Google Cloud Platform y Microsoft Azure. Además del desarrollo de software, produzco música bajo el proyecto D.E.B. en Spotify y realizo directos y contenido interactivo en TikTok y YouTube, lo que impulsó la creación de mis herramientas open-source para streamers.",
+      "Como Software Engineer II en Ellucian (Querétaro, México), contribuyo al diseño y desarrollo de páginas y componentes para aplicaciones internas dentro del área de I+D (R&D), abarcando tecnologías tanto de Front-End como de Back-End.",
+      "Soy Ingeniero en Sistemas Computacionales egresado de la Escuela Superior de Cómputo (ESCOM) del Instituto Politécnico Nacional (diciembre 2023) y Técnico en Sistemas Digitales por el CECyT No. 3 (IPN). Mis competencias principales incluyen React.js, TypeScript, HTML5, Python, Java, pruebas de rendimiento y automatización con NeoLoad y Selenium, además de servicios Cloud (AWS, GCP, Azure) y sistemas GNU/Linux (Debian).",
+      "Más allá del ámbito empresarial, desarrollo herramientas open-source de escritorio con Electron, Node.js y protocolo RCON, pipelines de inteligencia artificial local en Python, y produzco música bajo el proyecto D.E.B. en Spotify.",
     ],
     en: [
-      "I am a Software Engineer at Ellucian with a Computer Systems Engineering background from ESCOM at the National Polytechnic Institute (IPN) in Mexico.",
-      "I enjoy building software end-to-end: from full-stack web applications with React and Next.js, to cross-platform desktop apps with Electron and Node.js, real-time network protocols (RCON), and local AI pipelines in Python.",
-      "A Linux enthusiast (hence the DEBIAN handle) with hands-on experience across AWS, Google Cloud Platform, and Microsoft Azure. Outside of software engineering, I produce music on Spotify under the moniker D.E.B. and create interactive livestreams and content on TikTok and YouTube—which directly inspired my open-source TikTok Live × RCON tools.",
+      "As a Software Engineer II at Ellucian (Querétaro, Mexico), I contribute to the design and development of internal pages and components within the R&D department, working across both front-end and back-end technologies.",
+      "I hold a degree in Computer Systems Engineering from Escuela Superior de Cómputo (ESCOM - IPN, graduated December 2023) and a Digital Systems Technician degree from CECyT No. 3 (IPN). My core competencies include React.js, TypeScript, HTML5, Python, Java, performance and QA automation with NeoLoad and Selenium, Cloud services (AWS, GCP, Azure), and GNU/Linux (Debian).",
+      "Beyond enterprise engineering, I build open-source cross-platform desktop applications with Electron, Node.js, and RCON, local AI pipelines in Python, and produce music on Spotify under the moniker D.E.B.",
     ],
   },
 };
-
-export const CREATIVE_LINKS = [
-  {
-    category: {
-      es: "Música · Proyecto D.E.B.",
-      en: "Music · D.E.B. Project",
-    },
-    title: "Spotify Artist — D.E.B.",
-    subtitle: {
-      es: "Perfil de artista y lanzamientos musicales",
-      en: "Artist profile and musical releases",
-    },
-    href: PROFILE_DATA.spotifyArtistUrl,
-    platform: "spotify",
-  },
-  {
-    category: {
-      es: "Álbum Destacado (15 tracks)",
-      en: "Featured Album (15 tracks)",
-    },
-    title: "house noises — D.E.B.",
-    subtitle: {
-      es: "Escuchar álbum completo en Spotify",
-      en: "Listen to the full album on Spotify",
-    },
-    href: PROFILE_DATA.spotifyAlbumUrl,
-    platform: "spotify",
-  },
-  {
-    category: {
-      es: "Directos & Contenido",
-      en: "Livestreams & Content",
-    },
-    title: "TikTok (@debaleta)",
-    subtitle: {
-      es: "Streams interactivos y pruebas en vivo",
-      en: "Interactive streams and live tests",
-    },
-    href: PROFILE_DATA.tiktokUrl,
-    platform: "tiktok",
-  },
-  {
-    category: {
-      es: "Canal de Video",
-      en: "Video Channel",
-    },
-    title: "YouTube (Paleta Chupada)",
-    subtitle: {
-      es: "Videos, clips y contenido del canal",
-      en: "Videos, clips, and channel content",
-    },
-    href: PROFILE_DATA.youtubeUrl,
-    platform: "youtube",
-  },
-  {
-    category: {
-      es: "Red Social",
-      en: "Social Media",
-    },
-    title: "Instagram (@paleta_chupada)",
-    subtitle: {
-      es: "Actualizaciones y contacto directo",
-      en: "Updates and direct social profile",
-    },
-    href: PROFILE_DATA.instagramUrl,
-    platform: "instagram",
-  },
-];
 
 export const PINNED_REPOS: PinnedRepo[] = [
   {
@@ -276,12 +259,12 @@ export const PINNED_REPOS: PinnedRepo[] = [
       es: [
         "Diseño monocromático sin gradientes con soporte para tema oscuro y claro.",
         "Integración directa con los repositorios pineados y metadatos de GitHub (@danielDEBIAN).",
-        "Soporte bilingüe (Español / Inglés) y diseño responsivo.",
+        "Incluye CV interactivo de una sola página optimizado para exportación a PDF.",
       ],
       en: [
         "Strict zero-gradient monochromatic aesthetic with dark and light theme support.",
         "Direct integration with pinned repositories and metadata from GitHub (@danielDEBIAN).",
-        "Bilingual interface (Spanish / English) and responsive layout.",
+        "Includes a built-in one-page interactive resume optimized for PDF export.",
       ],
     },
     language: "TypeScript",
@@ -320,75 +303,178 @@ export const PINNED_REPOS: PinnedRepo[] = [
   },
 ];
 
-export const EXPERIENCE_DATA = [
+export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     role: {
-      es: "Software Engineer",
-      en: "Software Engineer",
+      es: "Software Engineer II",
+      en: "Software Engineer II",
     },
     organization: "Ellucian",
     period: {
-      es: "Actualidad",
-      en: "Present",
+      es: "Junio 2025 – Actualidad",
+      en: "June 2025 – Present",
     },
     location: {
-      es: "México",
-      en: "Mexico",
+      es: "San Juan del Río, Querétaro, México",
+      en: "San Juan del Río, Querétaro, Mexico",
     },
     description: {
-      es: "Desarrollo y mantenimiento de soluciones de software empresarial y servicios en la nube para instituciones de educación superior. Trabajo colaborativo en equipos ágiles aplicando buenas prácticas de ingeniería de software, integración continua y arquitecturas cloud.",
-      en: "Development and maintenance of enterprise software solutions and cloud services for higher education institutions. Collaborative engineering in agile teams applying clean architecture, CI/CD, and cloud best practices.",
+      es: "Diseño y desarrollo de páginas y componentes internos con enfoque Full-Stack (Front-End y Back-End), asegurando calidad, rendimiento y mantenibilidad en aplicaciones empresariales.",
+      en: "Design and development of internal pages and components with a Full-Stack focus (Front-End and Back-End), delivering robust, high-performance enterprise applications.",
     },
-    tags: ["Software Engineering", "Cloud Services", "Java", "JavaScript", "Full-Stack"],
+    tags: ["React.js", "HTML5", "Full-Stack", "NeoLoad", "Selenium"],
+  },
+  {
+    role: {
+      es: "Software Engineer I",
+      en: "Software Engineer I",
+    },
+    organization: "Ellucian",
+    period: {
+      es: "Julio 2023 – Junio 2025 (2 años)",
+      en: "July 2023 – June 2025 (2 years)",
+    },
+    location: {
+      es: "Remoto",
+      en: "Remote",
+    },
+    description: {
+      es: "Desarrollo de aplicaciones y módulos internos para el departamento de Investigación y Desarrollo (R&D), implementando interfaces en React.js, servicios backend y pruebas automatizadas.",
+      en: "Developed internal web applications and components for the R&D department, implementing React.js interfaces, backend services, and automated testing.",
+    },
+    tags: ["React.js", "JavaScript", "Front-End", "Back-End", "QA Automation"],
+  },
+  {
+    role: {
+      es: "Technical Intern",
+      en: "Technical Intern",
+    },
+    organization: "Ellucian",
+    period: {
+      es: "Enero 2023 – Junio 2023 (6 meses)",
+      en: "January 2023 – June 2023 (6 months)",
+    },
+    location: {
+      es: "Remoto",
+      en: "Remote",
+    },
+    description: {
+      es: "Colaboración en el departamento de R&D diseñando páginas y componentes de uso interno, participando activamente en el desarrollo tanto de frontend como de backend.",
+      en: "Worked in the R&D department designing pages and components for internal usage, developing both frontend and backend features.",
+    },
+    tags: ["R&D", "HTML5", "JavaScript", "Frontend & Backend"],
   },
 ];
 
-export const EDUCATION_DATA = [
+export const EDUCATION_DATA: EducationItem[] = [
   {
     degree: {
       es: "Ingeniería en Sistemas Computacionales",
       en: "B.S. in Computer Systems Engineering",
     },
-    institution: "ESCOM — Instituto Politécnico Nacional (IPN)",
+    institution: "Escuela Superior de Cómputo (ESCOM — IPN)",
     period: {
-      es: "Formación Profesional",
-      en: "Higher Education",
+      es: "Enero 2019 – Diciembre 2023",
+      en: "January 2019 – December 2023",
     },
     location: {
       es: "Ciudad de México, México",
       en: "Mexico City, Mexico",
     },
     description: {
-      es: "Formación sólida en algoritmos, estructuras de datos, criptografía, redes de computadoras, sistemas operativos Linux, ingeniería de software, bases de datos y cómputo en la nube.",
-      en: "Strong foundation in algorithms, data structures, cryptography, computer networks, Linux operating systems, software engineering, databases, and cloud computing.",
+      es: "Formación profesional en Ingeniería en Sistemas Computacionales: ingeniería de software, desarrollo web, algoritmos, criptografía, redes, bases de datos, sistemas operativos Linux y cómputo en la nube.",
+      en: "B.S. in Computer Systems Engineering: software engineering, web development, algorithms, cryptography, computer networks, databases, Linux operating systems, and cloud computing.",
     },
-    tags: ["Algorithms", "Cryptography", "Linux", "Distributed Systems", "Databases"],
+    tags: ["Computer Engineering", "Software Engineering", "Cryptography", "Linux"],
+  },
+  {
+    degree: {
+      es: "Técnico en Sistemas Digitales",
+      en: "Digital Systems Technician",
+    },
+    institution:
+      "Centro de Estudios Científicos y Tecnológicos No. 3 (CECyT 3 — IPN)",
+    period: {
+      es: "Agosto 2015 – Diciembre 2018",
+      en: "August 2015 – December 2018",
+    },
+    location: {
+      es: "Estado de México, México",
+      en: "Mexico",
+    },
+    description: {
+      es: "Formación técnica en tecnología de sistemas digitales, electrónica digital, arquitectura de computadoras y fundamentos de programación.",
+      en: "Technical degree in digital systems technology, digital electronics, computer architecture, and programming fundamentals.",
+    },
+    tags: ["Digital Systems", "Computer Technology", "Hardware & Logic"],
+  },
+];
+
+export const CERTIFICATIONS_DATA = [
+  {
+    name: "React.js Essential Training",
+    issuer: "LinkedIn Learning",
+  },
+  {
+    name: "Learning React.js",
+    issuer: "LinkedIn Learning",
+  },
+];
+
+export const SPOKEN_LANGUAGES_DATA = [
+  {
+    language: { es: "Español", en: "Spanish" },
+    level: { es: "Nativo", en: "Native" },
+  },
+  {
+    language: { es: "Inglés", en: "English" },
+    level: { es: "Competencia profesional (Working)", en: "Limited Working" },
+  },
+  {
+    language: { es: "Japonés", en: "Japanese" },
+    level: { es: "Básico (Elementary)", en: "Elementary" },
   },
 ];
 
 export const SKILLS_CATEGORIES = [
   {
     title: {
-      es: "Lenguajes de Programación",
-      en: "Programming Languages",
-    },
-    items: ["JavaScript (ES6+)", "TypeScript", "Python", "Java", "SQL", "Bash / Shell", "HTML5 & CSS3"],
-  },
-  {
-    title: {
-      es: "Frontend, Desktop & Frameworks",
-      en: "Frontend, Desktop & Frameworks",
-    },
-    items: ["React.js", "Next.js", "Node.js", "Electron", "Tailwind CSS", "Tkinter"],
-  },
-  {
-    title: {
-      es: "Cloud, DevOps & Sistemas",
-      en: "Cloud, DevOps & Systems",
+      es: "Lenguajes & Web",
+      en: "Languages & Web",
     },
     items: [
-      "AWS (Amazon Web Services)",
-      "GCP (Google Cloud Platform)",
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "HTML5 & CSS3",
+      "Python",
+      "Java",
+      "SQL",
+      "Bash / Shell",
+    ],
+  },
+  {
+    title: {
+      es: "Frameworks, Testing & QA",
+      en: "Frameworks, Testing & QA",
+    },
+    items: [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Electron",
+      "Tailwind CSS",
+      "Selenium",
+      "NeoLoad",
+    ],
+  },
+  {
+    title: {
+      es: "Cloud, Sistemas & DevOps",
+      en: "Cloud, Systems & DevOps",
+    },
+    items: [
+      "AWS",
+      "GCP (Google Cloud)",
       "Microsoft Azure",
       "GNU/Linux (Debian)",
       "Git & GitHub",
@@ -397,15 +483,16 @@ export const SKILLS_CATEGORIES = [
   },
   {
     title: {
-      es: "IA, Redes & Herramientas Especializadas",
-      en: "AI, Networking & Specialized Tools",
+      es: "IA Local, Redes & Criptografía",
+      en: "Local AI, Networking & Crypto",
     },
     items: [
       "Ollama (Local LLMs)",
       "Faster-Whisper",
       "FFmpeg & MoviePy",
       "Protocolo RCON",
-      "PyCryptodome (Criptografía)",
+      "PyCryptodome (DES)",
+      "Tkinter",
     ],
   },
 ];

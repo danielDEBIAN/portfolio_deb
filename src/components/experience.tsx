@@ -20,7 +20,7 @@ export default function Experience({ lang, theme }: ExperienceProps) {
           isDark ? "text-neutral-500" : "text-neutral-500"
         }`}
       >
-        03 / {lang === "es" ? "Trayectoria" : "Background"}
+        02 / {lang === "es" ? "Trayectoria" : "Background"}
       </p>
       <h2
         className={`text-2xl font-bold tracking-tight sm:text-3xl ${

@@ -1,5 +1,10 @@
+import Link from "next/link";
 import { BsGithub, BsLinkedin, BsArrowUpRight } from "react-icons/bs";
-import { HiOutlineDocumentDownload, HiOutlineLink } from "react-icons/hi";
+import {
+  HiOutlineDocumentText,
+  HiOutlineLink,
+  HiOutlineMail,
+} from "react-icons/hi";
 import { Language, PROFILE_DATA } from "../data/portfolio";
 
 interface FooterProps {
@@ -10,7 +15,7 @@ interface FooterProps {
 export default function Footer({ lang, theme }: FooterProps) {
   const isDark = theme === "dark";
 
-  const contactLinks = [
+  const externalLinks = [
     {
       label: "GitHub",
       value: "@danielDEBIAN",
@@ -24,10 +29,10 @@ export default function Footer({ lang, theme }: FooterProps) {
       icon: BsLinkedin,
     },
     {
-      label: lang === "es" ? "Currículum (CV)" : "Resume (CV)",
-      value: lang === "es" ? "Ver en Google Drive" : "View on Google Drive",
-      href: PROFILE_DATA.resumeUrl,
-      icon: HiOutlineDocumentDownload,
+      label: "Email",
+      value: PROFILE_DATA.email,
+      href: `mailto:${PROFILE_DATA.email}`,
+      icon: HiOutlineMail,
     },
     {
       label: "Linktree",
@@ -64,19 +69,61 @@ export default function Footer({ lang, theme }: FooterProps) {
         }`}
       >
         {lang === "es"
-          ? "Puedes encontrar mi código, trayectoria profesional y enlaces directos a través de las siguientes plataformas."
-          : "You can find my open-source repositories, professional profile, and direct links through the platforms below."}
+          ? "Puedes consultar y descargar mi CV de una sola página en formato PDF o contactarme directamente en las siguientes plataformas."
+          : "You can view and download my one-page resume in PDF format or reach out directly through the platforms below."}
       </p>
 
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {contactLinks.map((item) => {
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {/* Internal CV Page Card */}
+        <Link
+          href={PROFILE_DATA.cvPath}
+          className={`group flex flex-col justify-between border p-5 transition-colors ${
+            isDark
+              ? "border-neutral-700 bg-neutral-900/70 hover:border-neutral-400"
+              : "border-neutral-300 bg-neutral-100 hover:border-neutral-600"
+          }`}
+        >
+          <div className="flex items-center justify-between">
+            <HiOutlineDocumentText
+              size={19}
+              className={isDark ? "text-neutral-100" : "text-neutral-900"}
+            />
+            <BsArrowUpRight
+              size={12}
+              className={`transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${
+                isDark ? "text-neutral-300" : "text-neutral-600"
+              }`}
+            />
+          </div>
+
+          <div className="mt-6">
+            <p
+              className={`font-mono text-xs ${
+                isDark ? "text-neutral-400" : "text-neutral-600"
+              }`}
+            >
+              {lang === "es" ? "Currículum (1 Página)" : "Resume (1-Page)"}
+            </p>
+            <p
+              className={`mt-1 text-sm font-semibold ${
+                isDark ? "text-neutral-100" : "text-neutral-900"
+              }`}
+            >
+              {lang === "es" ? "Ver CV / Descargar PDF" : "View CV / Download PDF"}
+            </p>
+          </div>
+        </Link>
+
+        {/* External Contact Cards */}
+        {externalLinks.map((item) => {
           const Icon = item.icon;
+          const isMail = item.href.startsWith("mailto:");
           return (
             <a
               key={item.label}
               href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={isMail ? undefined : "_blank"}
+              rel={isMail ? undefined : "noopener noreferrer"}
               className={`group flex flex-col justify-between border p-5 transition-colors ${
                 isDark
                   ? "border-neutral-800 bg-[#0f0f0f] hover:border-neutral-600"
@@ -105,7 +152,7 @@ export default function Footer({ lang, theme }: FooterProps) {
                   {item.label}
                 </p>
                 <p
-                  className={`mt-1 text-sm font-medium ${
+                  className={`mt-1 break-all text-sm font-medium ${
                     isDark ? "text-neutral-200" : "text-neutral-900"
                   }`}
                 >

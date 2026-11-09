@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { BsGithub, BsSun, BsMoon } from "react-icons/bs";
 import { Language, PROFILE_DATA } from "../data/portfolio";
@@ -17,12 +18,12 @@ export default function Header({ lang, setLang, theme, toggleTheme }: HeaderProp
 
   const navItems = [
     {
-      href: "#projects",
-      label: lang === "es" ? "Proyectos" : "Projects",
-    },
-    {
       href: "#about",
       label: lang === "es" ? "Sobre mí" : "About",
+    },
+    {
+      href: "#projects",
+      label: lang === "es" ? "Proyectos" : "Projects",
     },
     {
       href: "#experience",
@@ -71,7 +72,7 @@ export default function Header({ lang, setLang, theme, toggleTheme }: HeaderProp
         </a>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex md:items-center md:gap-8">
+        <div className="hidden md:flex md:items-center md:gap-7">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -85,6 +86,16 @@ export default function Header({ lang, setLang, theme, toggleTheme }: HeaderProp
               {item.label}
             </a>
           ))}
+          <Link
+            href={PROFILE_DATA.cvPath}
+            className={`border px-2.5 py-0.5 font-mono text-xs font-medium transition-colors ${
+              isDark
+                ? "border-neutral-700 bg-neutral-900 text-neutral-200 hover:border-neutral-500 hover:text-white"
+                : "border-neutral-300 bg-white text-neutral-800 hover:border-neutral-500 hover:text-black"
+            }`}
+          >
+            CV / PDF
+          </Link>
         </div>
 
         {/* Actions: Language, Theme, GitHub */}
@@ -132,6 +143,16 @@ export default function Header({ lang, setLang, theme, toggleTheme }: HeaderProp
 
         {/* Mobile menu button */}
         <div className="flex items-center gap-2 md:hidden">
+          <Link
+            href={PROFILE_DATA.cvPath}
+            className={`border px-2 py-1 font-mono text-xs ${
+              isDark
+                ? "border-neutral-800 bg-neutral-900 text-neutral-200"
+                : "border-neutral-300 bg-white text-neutral-800"
+            }`}
+          >
+            CV
+          </Link>
           <button
             type="button"
             onClick={() => setLang(lang === "es" ? "en" : "es")}
@@ -198,6 +219,17 @@ export default function Header({ lang, setLang, theme, toggleTheme }: HeaderProp
                 {item.label}
               </a>
             ))}
+            <Link
+              href={PROFILE_DATA.cvPath}
+              onClick={() => setMobileMenuOpen(false)}
+              className={`py-1 font-mono text-sm font-semibold ${
+                isDark
+                  ? "text-neutral-100 hover:text-white"
+                  : "text-neutral-900 hover:text-black"
+              }`}
+            >
+              {lang === "es" ? "Ver / Descargar CV (PDF)" : "View / Download CV (PDF)"}
+            </Link>
           </div>
         </div>
       )}

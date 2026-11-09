@@ -28,3 +28,30 @@ html.light ::selection {
   background-color: #171717;
   color: #fafafa;
 }
+
+@page {
+  size: letter portrait;
+  margin: 10mm 12mm;
+}
+
+@media print {
+  html,
+  body,
+  html.light body {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cv-print-sheet {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    background-color: #ffffff !important;
+    color: #111111 !important;
+  }
+}

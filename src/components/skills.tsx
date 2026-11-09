@@ -1,4 +1,9 @@
-import { Language, SKILLS_CATEGORIES } from "../data/portfolio";
+import {
+  CERTIFICATIONS_DATA,
+  Language,
+  SKILLS_CATEGORIES,
+  SPOKEN_LANGUAGES_DATA,
+} from "../data/portfolio";
 
 interface SkillsProps {
   lang: Language;
@@ -27,7 +32,9 @@ export default function Skills({ lang, theme }: SkillsProps) {
           isDark ? "text-neutral-100" : "text-neutral-900"
         }`}
       >
-        {lang === "es" ? "Stack Tecnológico" : "Tech Stack"}
+        {lang === "es"
+          ? "Stack Tecnológico, Certificaciones e Idiomas"
+          : "Tech Stack, Certifications & Languages"}
       </h2>
 
       <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -64,6 +71,89 @@ export default function Skills({ lang, theme }: SkillsProps) {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Certifications & Spoken Languages Row */}
+      <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div
+          className={`border p-6 ${
+            isDark
+              ? "border-neutral-800 bg-[#0f0f0f]"
+              : "border-neutral-200 bg-white"
+          }`}
+        >
+          <h3
+            className={`font-mono text-xs font-semibold uppercase tracking-wider ${
+              isDark ? "text-neutral-300" : "text-neutral-800"
+            }`}
+          >
+            {lang === "es" ? "Certificaciones" : "Certifications"}
+          </h3>
+
+          <ul className="mt-4 space-y-2.5">
+            {CERTIFICATIONS_DATA.map((cert) => (
+              <li
+                key={cert.name}
+                className="flex items-center justify-between gap-2 text-sm"
+              >
+                <span
+                  className={`font-medium ${
+                    isDark ? "text-neutral-200" : "text-neutral-900"
+                  }`}
+                >
+                  {cert.name}
+                </span>
+                <span
+                  className={`font-mono text-xs ${
+                    isDark ? "text-neutral-500" : "text-neutral-500"
+                  }`}
+                >
+                  {cert.issuer}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div
+          className={`border p-6 ${
+            isDark
+              ? "border-neutral-800 bg-[#0f0f0f]"
+              : "border-neutral-200 bg-white"
+          }`}
+        >
+          <h3
+            className={`font-mono text-xs font-semibold uppercase tracking-wider ${
+              isDark ? "text-neutral-300" : "text-neutral-800"
+            }`}
+          >
+            {lang === "es" ? "Idiomas" : "Languages"}
+          </h3>
+
+          <ul className="mt-4 space-y-2.5">
+            {SPOKEN_LANGUAGES_DATA.map((item) => (
+              <li
+                key={item.language.en}
+                className="flex items-center justify-between gap-2 text-sm"
+              >
+                <span
+                  className={`font-medium ${
+                    isDark ? "text-neutral-200" : "text-neutral-900"
+                  }`}
+                >
+                  {item.language[lang]}
+                </span>
+                <span
+                  className={`font-mono text-xs ${
+                    isDark ? "text-neutral-500" : "text-neutral-500"
+                  }`}
+                >
+                  {item.level[lang]}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
