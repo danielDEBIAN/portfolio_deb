@@ -25,7 +25,7 @@ export default function Skills({ lang, theme }: SkillsProps) {
           isDark ? "text-neutral-500" : "text-neutral-500"
         }`}
       >
-        04 / {lang === "es" ? "Habilidades Técnicas" : "Technical Skills"}
+        03 / {lang === "es" ? "Habilidades Técnicas" : "Technical Skills"}
       </p>
       <h2
         className={`text-2xl font-bold tracking-tight sm:text-3xl ${

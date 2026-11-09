@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { BsArrowLeft, BsSun, BsMoon, BsPrinter } from "react-icons/bs";
 import { HiOutlineDownload } from "react-icons/hi";
@@ -8,25 +7,15 @@ import {
   CERTIFICATIONS_DATA,
   EDUCATION_DATA,
   EXPERIENCE_DATA,
-  Language,
   PINNED_REPOS,
   PROFILE_DATA,
   SKILLS_CATEGORIES,
   SPOKEN_LANGUAGES_DATA,
 } from "../../data/portfolio";
+import { usePreferences } from "../../hooks/usePreferences";
 
 export default function CVPage() {
-  const [lang, setLang] = useState<Language>("es");
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "light") {
-      root.classList.add("light");
-    } else {
-      root.classList.remove("light");
-    }
-  }, [theme]);
+  const { lang, setLang, theme, toggleTheme } = usePreferences();
 
   const isDark = theme === "dark";
 
@@ -84,7 +73,7 @@ export default function CVPage() {
 
             <button
               type="button"
-              onClick={() => setTheme(isDark ? "light" : "dark")}
+              onClick={toggleTheme}
               aria-label="Toggle theme"
               className={`flex h-8 w-8 items-center justify-center border transition-colors ${
                 isDark

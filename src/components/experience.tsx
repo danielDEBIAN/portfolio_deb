@@ -44,7 +44,7 @@ export default function Experience({ lang, theme }: ExperienceProps) {
           <div className="space-y-4">
             {EXPERIENCE_DATA.map((item) => (
               <div
-                key={item.organization}
+                key={`${item.organization}-${item.role.en}`}
                 className={`border p-6 ${
                   isDark
                     ? "border-neutral-800 bg-[#0f0f0f]"
@@ -118,7 +118,7 @@ export default function Experience({ lang, theme }: ExperienceProps) {
           <div className="space-y-4">
             {EDUCATION_DATA.map((edu) => (
               <div
-                key={edu.institution}
+                key={`${edu.institution}-${edu.degree.en}`}
                 className={`border p-6 ${
                   isDark
                     ? "border-neutral-800 bg-[#0f0f0f]"

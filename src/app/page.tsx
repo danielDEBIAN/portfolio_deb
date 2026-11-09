@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Header from "../components/header";
 import Hello from "../components/hello";
 import Projects from "../components/projects";
@@ -8,24 +7,10 @@ import About from "../components/about";
 import Experience from "../components/experience";
 import Skills from "../components/skills";
 import Footer from "../components/footer";
-import { Language } from "../data/portfolio";
+import { usePreferences } from "../hooks/usePreferences";
 
 export default function PortfolioPage() {
-  const [lang, setLang] = useState<Language>("es");
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "light") {
-      root.classList.add("light");
-    } else {
-      root.classList.remove("light");
-    }
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
+  const { lang, setLang, theme, toggleTheme } = usePreferences();
 
   return (
     <div
