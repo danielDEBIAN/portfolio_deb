@@ -1,6 +1,13 @@
 import Image from "next/image";
+import {
+  BsSpotify,
+  BsTiktok,
+  BsYoutube,
+  BsInstagram,
+  BsArrowUpRight,
+} from "react-icons/bs";
 import aboutImg from "../img/about_img.jpg";
-import { Language, PROFILE_DATA } from "../data/portfolio";
+import { CREATIVE_LINKS, Language, PROFILE_DATA } from "../data/portfolio";
 
 interface AboutProps {
   lang: Language;
@@ -28,6 +35,21 @@ export default function About({ lang, theme }: AboutProps) {
       value: "GNU/Linux (Debian)",
     },
   ];
+
+  const getPlatformIcon = (platform: string) => {
+    switch (platform) {
+      case "spotify":
+        return BsSpotify;
+      case "tiktok":
+        return BsTiktok;
+      case "youtube":
+        return BsYoutube;
+      case "instagram":
+        return BsInstagram;
+      default:
+        return BsSpotify;
+    }
+  };
 
   return (
     <section
@@ -119,9 +141,95 @@ export default function About({ lang, theme }: AboutProps) {
               }`}
             >
               <span>@{PROFILE_DATA.handle}</span>
-              <span>MX</span>
+              <span>{PROFILE_DATA.alias}</span>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Beyond Code: Music (D.E.B.) & Live Content from Linktree */}
+      <div
+        className={`mt-12 border-t pt-10 ${
+          isDark ? "border-neutral-900" : "border-neutral-200"
+        }`}
+      >
+        <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
+          <div>
+            <h3
+              className={`font-mono text-xs font-semibold uppercase tracking-wider ${
+                isDark ? "text-neutral-300" : "text-neutral-800"
+              }`}
+            >
+              {lang === "es"
+                ? "Más allá del código — Música (D.E.B.) & Contenido"
+                : "Beyond Code — Music (D.E.B.) & Content"}
+            </h3>
+            <p
+              className={`mt-1 text-xs ${
+                isDark ? "text-neutral-400" : "text-neutral-600"
+              }`}
+            >
+              {lang === "es"
+                ? "Proyectos musicales en Spotify y canales donde realizo directos y pruebas interactivas."
+                : "Musical releases on Spotify and channels where I stream and test interactive projects."}
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {CREATIVE_LINKS.map((item) => {
+            const Icon = getPlatformIcon(item.platform);
+            return (
+              <a
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group flex flex-col justify-between border p-4 transition-colors ${
+                  isDark
+                    ? "border-neutral-800 bg-[#0f0f0f] hover:border-neutral-600"
+                    : "border-neutral-200 bg-white hover:border-neutral-400"
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <Icon
+                    size={15}
+                    className={isDark ? "text-neutral-300" : "text-neutral-800"}
+                  />
+                  <BsArrowUpRight
+                    size={11}
+                    className={`transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${
+                      isDark ? "text-neutral-500" : "text-neutral-400"
+                    }`}
+                  />
+                </div>
+
+                <div className="mt-4">
+                  <p
+                    className={`font-mono text-[10px] uppercase ${
+                      isDark ? "text-neutral-500" : "text-neutral-500"
+                    }`}
+                  >
+                    {item.category[lang]}
+                  </p>
+                  <p
+                    className={`mt-1 text-xs font-semibold ${
+                      isDark ? "text-neutral-200" : "text-neutral-900"
+                    }`}
+                  >
+                    {item.title}
+                  </p>
+                  <p
+                    className={`mt-0.5 text-[11px] leading-snug ${
+                      isDark ? "text-neutral-400" : "text-neutral-600"
+                    }`}
+                  >
+                    {item.subtitle[lang]}
+                  </p>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>

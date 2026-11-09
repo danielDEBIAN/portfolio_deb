@@ -28,6 +28,7 @@ export const PROFILE_DATA = {
   name: "Daniel Espinoza",
   fullName: "Daniel Espinoza Bautista",
   handle: "danielDEBIAN",
+  alias: "D.E.B. / Paleta Chupada",
   role: {
     es: "Software Engineer en Ellucian",
     en: "Software Engineer at Ellucian",
@@ -44,6 +45,11 @@ export const PROFILE_DATA = {
   linktreeUrl: "https://linktr.ee/deb_daniel",
   resumeUrl:
     "https://drive.google.com/file/d/1WgYXXZHkY-SCwNHYlZZ7wuvBM6keJSWd/view?usp=sharing",
+  spotifyArtistUrl: "https://open.spotify.com/artist/6yyRisjlFkP7X3BtluPsK7",
+  spotifyAlbumUrl: "https://open.spotify.com/album/7foXQbpRDBxQUAQpkoU8GC",
+  tiktokUrl: "https://tiktok.com/@debaleta",
+  youtubeUrl: "https://www.youtube.com/channel/UCqSthQqDbU0FNXJLLx3LeBA",
+  instagramUrl: "https://instagram.com/paleta_chupada",
   heroHeadline: {
     es: "Ingeniero de Software construyendo herramientas de escritorio, web y automatización.",
     en: "Software Engineer building desktop tools, web applications, and automation pipelines.",
@@ -56,15 +62,83 @@ export const PROFILE_DATA = {
     es: [
       "Soy Ingeniero de Software en Ellucian y formado en Ingeniería en Sistemas Computacionales en la Escuela Superior de Cómputo (ESCOM) del Instituto Politécnico Nacional.",
       "Disfruto diseñar y desarrollar software de principio a fin: desde aplicaciones web full-stack con React y Next.js, hasta aplicaciones de escritorio multiplataforma con Electron y Node.js, protocolos de red en tiempo real (RCON) y pipelines de inteligencia artificial local en Python.",
-      "Entusiasta de Linux (de ahí el alias DEBIAN) y del cómputo en la nube con experiencia en AWS, Google Cloud Platform y Microsoft Azure. Me enfoco en crear herramientas limpias, rápidas, de código abierto y sin fricción para el usuario final.",
+      "Entusiasta de Linux (de ahí el alias DEBIAN) y del cómputo en la nube con experiencia en AWS, Google Cloud Platform y Microsoft Azure. Además del desarrollo de software, produzco música bajo el proyecto D.E.B. en Spotify y realizo directos y contenido interactivo en TikTok y YouTube, lo que impulsó la creación de mis herramientas open-source para streamers.",
     ],
     en: [
       "I am a Software Engineer at Ellucian with a Computer Systems Engineering background from ESCOM at the National Polytechnic Institute (IPN) in Mexico.",
       "I enjoy building software end-to-end: from full-stack web applications with React and Next.js, to cross-platform desktop apps with Electron and Node.js, real-time network protocols (RCON), and local AI pipelines in Python.",
-      "A Linux enthusiast (hence the DEBIAN handle) with hands-on experience across AWS, Google Cloud Platform, and Microsoft Azure. I focus on building clean, fast, open-source tools that solve real problems without unnecessary complexity.",
+      "A Linux enthusiast (hence the DEBIAN handle) with hands-on experience across AWS, Google Cloud Platform, and Microsoft Azure. Outside of software engineering, I produce music on Spotify under the moniker D.E.B. and create interactive livestreams and content on TikTok and YouTube—which directly inspired my open-source TikTok Live × RCON tools.",
     ],
   },
 };
+
+export const CREATIVE_LINKS = [
+  {
+    category: {
+      es: "Música · Proyecto D.E.B.",
+      en: "Music · D.E.B. Project",
+    },
+    title: "Spotify Artist — D.E.B.",
+    subtitle: {
+      es: "Perfil de artista y lanzamientos musicales",
+      en: "Artist profile and musical releases",
+    },
+    href: PROFILE_DATA.spotifyArtistUrl,
+    platform: "spotify",
+  },
+  {
+    category: {
+      es: "Álbum Destacado (15 tracks)",
+      en: "Featured Album (15 tracks)",
+    },
+    title: "house noises — D.E.B.",
+    subtitle: {
+      es: "Escuchar álbum completo en Spotify",
+      en: "Listen to the full album on Spotify",
+    },
+    href: PROFILE_DATA.spotifyAlbumUrl,
+    platform: "spotify",
+  },
+  {
+    category: {
+      es: "Directos & Contenido",
+      en: "Livestreams & Content",
+    },
+    title: "TikTok (@debaleta)",
+    subtitle: {
+      es: "Streams interactivos y pruebas en vivo",
+      en: "Interactive streams and live tests",
+    },
+    href: PROFILE_DATA.tiktokUrl,
+    platform: "tiktok",
+  },
+  {
+    category: {
+      es: "Canal de Video",
+      en: "Video Channel",
+    },
+    title: "YouTube (Paleta Chupada)",
+    subtitle: {
+      es: "Videos, clips y contenido del canal",
+      en: "Videos, clips, and channel content",
+    },
+    href: PROFILE_DATA.youtubeUrl,
+    platform: "youtube",
+  },
+  {
+    category: {
+      es: "Red Social",
+      en: "Social Media",
+    },
+    title: "Instagram (@paleta_chupada)",
+    subtitle: {
+      es: "Actualizaciones y contacto directo",
+      en: "Updates and direct social profile",
+    },
+    href: PROFILE_DATA.instagramUrl,
+    platform: "instagram",
+  },
+];
 
 export const PINNED_REPOS: PinnedRepo[] = [
   {
@@ -214,7 +288,7 @@ export const PINNED_REPOS: PinnedRepo[] = [
     languageColor: "#3178c6",
     stars: 1,
     category: "web",
-    topics: ["TypeScript", "Next.js 14", "React 18", "Tailwind CSS"],
+    topics: ["TypeScript", "Next.js 16", "React 19", "Tailwind CSS"],
     repoUrl: "https://github.com/danielDEBIAN/portfolio_deb",
   },
   {
@@ -316,7 +390,7 @@ export const SKILLS_CATEGORIES = [
       "AWS (Amazon Web Services)",
       "GCP (Google Cloud Platform)",
       "Microsoft Azure",
-      "GNU/Linux (Fedora)",
+      "GNU/Linux (Debian)",
       "Git & GitHub",
       "Firebase",
     ],

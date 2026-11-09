@@ -24,16 +24,16 @@ export default function Footer({ lang, theme }: FooterProps) {
       icon: BsLinkedin,
     },
     {
-      label: "Linktree",
-      value: "linktr.ee/deb_daniel",
-      href: PROFILE_DATA.linktreeUrl,
-      icon: HiOutlineLink,
-    },
-    {
       label: lang === "es" ? "Currículum (CV)" : "Resume (CV)",
       value: lang === "es" ? "Ver en Google Drive" : "View on Google Drive",
       href: PROFILE_DATA.resumeUrl,
       icon: HiOutlineDocumentDownload,
+    },
+    {
+      label: "Linktree",
+      value: "linktr.ee/deb_daniel",
+      href: PROFILE_DATA.linktreeUrl,
+      icon: HiOutlineLink,
     },
   ];
 
@@ -64,8 +64,8 @@ export default function Footer({ lang, theme }: FooterProps) {
         }`}
       >
         {lang === "es"
-          ? "Puedes encontrar mi código, proyectos open-source y trayectoria profesional en los siguientes enlaces."
-          : "You can find my open-source repositories, projects, and professional profile through the links below."}
+          ? "Puedes encontrar mi código, trayectoria profesional y enlaces directos a través de las siguientes plataformas."
+          : "You can find my open-source repositories, professional profile, and direct links through the platforms below."}
       </p>
 
       <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
